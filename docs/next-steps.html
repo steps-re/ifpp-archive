@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bringing IFPP Back</title>
+<meta name="description" content="What happens next to bring the IndieFeed Performance Poetry archive back online, in plain English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf6ef; --panel: #ffffff; --ink: #1f1a17; --muted: #6b625a; --line: #e7ddd0;
+  --accent: #c8501e; --chip: #f1e8db; --good: #2f6b3a; --good-bg: #e6f2e4;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15120f; --panel: #1e1a16; --ink: #f3ece3; --muted: #a89c8f; --line: #342d26;
+    --accent: #ff7a3d; --chip: #2a241e; --good: #9fd3a6; --good-bg: #1c2a1e;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15120f; --panel: #1e1a16; --ink: #f3ece3; --muted: #a89c8f; --line: #342d26;
+  --accent: #ff7a3d; --chip: #2a241e; --good: #9fd3a6; --good-bg: #1c2a1e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.65 Inter, system-ui, sans-serif; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 48px 16px 64px; }
+.kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--accent); font-weight: 600; }
+h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(32px, 6vw, 46px); line-height: 1.1; margin: 8px 0 20px; }
+h2 { font-family: Fraunces, Georgia, serif; font-size: 26px; margin: 44px 0 10px; }
+p { margin: 0 0 16px; }
+a { color: var(--accent); }
+.calm { background: var(--good-bg); color: var(--good); border-radius: 12px; padding: 16px 18px; margin: 24px 0; }
+.calm p:last-child { margin: 0; }
+ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+ol.steps > li { counter-increment: s; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 4px 64px; margin: 0 0 14px; position: relative; }
+ol.steps > li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 600; display: grid; place-items: center; font-size: 16px; }
+ol.steps h3 { margin: 0 0 6px; font-size: 19px; }
+.who { display: inline-block; font-size: 13px; font-weight: 600; background: var(--chip); border-radius: 999px; padding: 2px 10px; margin-bottom: 8px; }
+ul { padding-left: 22px; margin: 0 0 16px; }
+li { margin-bottom: 6px; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 16px; }
+td { padding: 10px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:last-child { text-align: right; font-weight: 600; white-space: nowrap; padding-left: 12px; }
+.sig { margin-top: 40px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">For Mongo &middot; IndieFeed Performance Poetry</div>
+  <h1>Bringing the archive back, in plain English</h1>
+  <p>Hi Mongo. This page explains what happens next to get all 1,614 shows back online. You don't need to understand any of the technical parts. Your part is small, and I'll walk you through each piece.</p>
+
+  <div class="calm">
+    <p><b>You won't need to write code, run anything, or manage a server.</b> Nothing here can break or delete anything you already have. If any step feels confusing, just reply to my email and we'll do it together on a call.</p>
+  </div>
+
+  <h2>What's already done</h2>
+  <ul>
+    <li>The full show list is rebuilt. That's every poet, poem title, date and show number from 2006 to 2016, recovered from old saved copies of the Libsyn pages.</li>
+    <li>A draft website is up at <a href="./">steps-re.github.io/ifpp-archive</a>. You can search by poet or poem, browse by year, and play any show once its audio is back.</li>
+    <li>The tools to upload the audio and rebuild the podcast feed are built and tested.</li>
+  </ul>
+  <p>The one thing missing is the audio itself. The old Libsyn links stopped working, so the recordings need to come from you.</p>
+
+  <h2>What happens next</h2>
+  <ol class="steps">
+    <li>
+      <span class="who">You</span>
+      <h3>Look for the MP3 files</h3>
+      <p>Check wherever you might have kept them. An old computer, an external hard drive, Dropbox, or a backup disc. You might also still be able to log in to Libsyn and download them from there.</p>
+      <p>Don't worry about sorting, renaming or checking them. A messy folder is completely fine. If you only find some, that's still a great start.</p>
+    </li>
+    <li>
+      <span class="who">You, about 10 minutes</span>
+      <h3>Send them to me</h3>
+      <p>I'll email you a link to a shared folder. You drag the files into it, the same way you'd attach a photo to an email.</p>
+    </li>
+    <li>
+      <span class="who">Me</span>
+      <h3>I match and label every show</h3>
+      <p>I'll match each recording to its show, then add the poet's name, the poem title, the date and the show number to the file itself. That's what makes them show up properly in podcast apps and searches. I'll send you a short list of anything I can't match so you can take a look.</p>
+    </li>
+    <li>
+      <span class="who">You, about 5 minutes, with my help</span>
+      <h3>Create a free Internet Archive account</h3>
+      <p>The Internet Archive (archive.org) is a nonprofit library that keeps things online for good, at no cost. The recordings should live under your name so the archive stays yours. Making the account is like signing up for any website. We can do it together on a call if you'd like.</p>
+    </li>
+    <li>
+      <span class="who">Me</span>
+      <h3>I upload everything and turn the site on</h3>
+      <p>Each show goes up as its own page with the poet credited. As the uploads finish, the shows light up on the website and the play buttons start working. I'll also rebuild the podcast feed so people can subscribe again in Apple Podcasts or any other app.</p>
+    </li>
+    <li>
+      <span class="who">You decide</span>
+      <h3>Choose the web address</h3>
+      <p>There are two easy options. The first is a new address like <b>indiefeedpoetry.org</b>, which is available and costs about $12 a year. The second is bringing back the old one, <b>performancepoetry.indiefeed.com</b>. The indiefeed.com name is still owned by someone, probably whoever ran the IndieFeed network. If you know them, a quick note asking them to point that address at the new site would cost nothing. I can send you the exact words to forward.</p>
+    </li>
+  </ol>
+
+  <h2>What it costs</h2>
+  <table>
+    <tr><td>Storing all the recordings on the Internet Archive</td><td>Free</td></tr>
+    <tr><td>Hosting the website</td><td>Free</td></tr>
+    <tr><td>A new web address (optional)</td><td>About $12 a year</td></tr>
+  </table>
+  <p>So there's no need for a GoFundMe unless you want something fancier later.</p>
+
+  <h2>About the poets</h2>
+  <p>The recordings belong to the poets. Every show page credits the poet and says how to ask for a recording to be removed. If anyone asks, it comes down. We could also send a short, friendly note to past poets letting them know the archive is coming back. I'm happy to draft that for you.</p>
+
+  <h2>Questions you might have</h2>
+  <p><b>What if I can't find the files?</b> Then we keep looking together. The Internet Archive's Wayback Machine sometimes saved old audio files, and I'll check that too. Even without audio, the show list is a nice record of the channel.</p>
+  <p><b>Can I change things later?</b> Yes. Anything on the site can be fixed or removed at any time. Just tell me what you'd like changed.</p>
+  <p><b>Will this cost me anything down the road?</b> No. The only possible cost is the optional web address. Nothing renews or charges without you choosing it.</p>
+
+  <p class="sig">Reply to my email any time, or ask for a call. No question is too small.<br>Mike German</p>
+</div>
+</body>
+</html>

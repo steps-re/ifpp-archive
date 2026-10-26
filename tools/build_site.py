@@ -80,7 +80,8 @@ def main():
     DOCS.mkdir(exist_ok=True)
     (DOCS / "episodes.json").write_text(json.dumps(slim, ensure_ascii=False, separators=(",", ":")))
     (DOCS / "feed.xml").write_text(feed_xml(eps, base))
-    shutil.copy(ROOT / "site" / "index.html", DOCS / "index.html")
+    for page in (ROOT / "site").glob("*.html"):
+        shutil.copy(page, DOCS / page.name)
     (DOCS / ".nojekyll").write_text("")
     on_ia = sum(1 for e in eps if e.get("audio_url"))
     on_wb = sum(1 for e in eps if not e.get("audio_url") and e.get("wayback_audio_url"))
