@@ -29,7 +29,7 @@ def cdx(prefix):
         except Exception as e:
             print(f"  {prefix}: retry {i + 1} after {e!r}")
             time.sleep(30 * (i + 1))
-    return ""
+    raise RuntimeError(f"Wayback CDX unreachable for {prefix}; not caching an empty result")
 
 
 def main():
