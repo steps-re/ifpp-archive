@@ -12,4 +12,4 @@ Recordings belong to the poets. Set `"removed": true` on a show in `data/episode
 ## Status (2026-10-26)
 - Show list: 1,624 entries (1,614 numbered shows plus announcements). Gaps in show numbers are typos in the original notes (e.g. 644 used twice, 645 never).
 - Audio: the original Libsyn MP3s all return 404. Whether the Wayback Machine saved any is UNKNOWN: its index timed out and then rate-limited (429). Re-run `tools/wayback_audio.py` on a quiet day.
-- Site: private repo, GitHub Pages not enabled. Enable only after Mongo agrees.
+- Site: public draft at https://steps-re.github.io/ifpp-archive/ (published 2026-10-26 for Mongo to review).
