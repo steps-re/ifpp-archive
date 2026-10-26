@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IndieFeed Performance Poetry Archive</title>
+<meta name="description" content="Every show from the IndieFeed Performance Poetry Channel, 2006 to 2016. One poem per episode.">
+<link rel="alternate" type="application/rss+xml" title="IndieFeed: Performance Poetry" href="feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf6ef; --panel: #ffffff; --ink: #1f1a17; --muted: #6b625a; --line: #e7ddd0;
+  --accent: #c8501e; --accent-ink: #ffffff; --chip: #f1e8db; --warn: #8a5a00; --warn-bg: #fdf1d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15120f; --panel: #1e1a16; --ink: #f3ece3; --muted: #a89c8f; --line: #342d26;
+    --accent: #ff7a3d; --accent-ink: #1a0f08; --chip: #2a241e; --warn: #f3c46b; --warn-bg: #2d2412;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15120f; --panel: #1e1a16; --ink: #f3ece3; --muted: #a89c8f; --line: #342d26;
+  --accent: #ff7a3d; --accent-ink: #1a0f08; --chip: #2a241e; --warn: #f3c46b; --warn-bg: #2d2412;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 Inter, system-ui, sans-serif; padding-bottom: 96px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+header { padding: 56px 0 24px; }
+.kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; color: var(--accent); font-weight: 600; }
+h1 { font-family: Fraunces, Georgia, serif; font-size: clamp(36px, 7vw, 60px); line-height: 1.02; margin: 8px 0 16px; font-weight: 700; }
+.lede { font-size: 18px; color: var(--muted); max-width: 620px; margin: 0; }
+.stats { display: flex; gap: 28px; margin: 24px 0 0; flex-wrap: wrap; }
+.stats b { display: block; font-family: Fraunces, Georgia, serif; font-size: 30px; color: var(--ink); }
+.stats span { color: var(--muted); font-size: 13px; }
+.notice { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 12px 14px; font-size: 14px; margin: 24px 0 0; }
+.tools { position: sticky; top: 0; background: var(--bg); padding: 16px 0 12px; z-index: 2; border-bottom: 1px solid var(--line); }
+.row { display: flex; gap: 8px; }
+input[type=search] { flex: 1; min-width: 0; font: inherit; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--ink); }
+button { font: inherit; cursor: pointer; border: 0; border-radius: 10px; }
+.btn { background: var(--accent); color: var(--accent-ink); padding: 0 16px; font-weight: 600; white-space: nowrap; }
+.years { display: flex; gap: 6px; overflow-x: auto; margin-top: 10px; padding-bottom: 2px; scrollbar-width: none; }
+.years button { background: var(--chip); color: var(--ink); padding: 6px 12px; font-size: 13px; white-space: nowrap; }
+.years button[aria-pressed=true] { background: var(--ink); color: var(--bg); }
+.count { color: var(--muted); font-size: 13px; margin: 14px 0 4px; }
+ol { list-style: none; margin: 0; padding: 0; }
+li { display: grid; grid-template-columns: 48px 1fr auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+li:target { background: var(--chip); }
+.thumb { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; background: var(--chip); }
+.poet { font-weight: 600; }
+.poem { font-family: Fraunces, Georgia, serif; font-size: 18px; }
+.meta { color: var(--muted); font-size: 13px; }
+.play { width: 44px; height: 44px; border-radius: 50%; background: var(--chip); color: var(--ink); font-size: 16px; }
+.play:not(:disabled):hover, .play.on { background: var(--accent); color: var(--accent-ink); }
+.play:disabled { opacity: .35; cursor: not-allowed; }
+.more { display: block; margin: 20px auto; background: var(--chip); color: var(--ink); padding: 10px 20px; }
+.player { position: fixed; left: 0; right: 0; bottom: 0; background: var(--panel); border-top: 1px solid var(--line); padding: 10px 16px; display: none; z-index: 3; }
+.player.show { display: block; }
+.player .wrap { display: flex; gap: 12px; align-items: center; padding: 0; }
+.player .now { flex: 0 1 40%; min-width: 0; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.player audio { flex: 1; min-width: 0; height: 40px; }
+footer { color: var(--muted); font-size: 14px; padding: 40px 0; }
+footer a { color: var(--accent); }
+@media (max-width: 560px) {
+  li { grid-template-columns: 1fr auto; } .thumb { display: none; }
+  .player .wrap { flex-direction: column; align-items: stretch; gap: 4px; } .player .now { flex: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">2006 &ndash; 2016 &middot; The complete archive</div>
+    <h1>IndieFeed Performance Poetry</h1>
+    <p class="lede">One poem per episode, three times a week, for ten years. Hosted by Wess &ldquo;Mongo&rdquo; Jolley.</p>
+    <div class="stats">
+      <div><b id="s-shows">&ndash;</b><span>shows listed</span></div>
+      <div><b id="s-poets">&ndash;</b><span>poets</span></div>
+      <div><b id="s-audio">&ndash;</b><span>playable now</span></div>
+    </div>
+    <p class="notice" id="notice">Draft. The show list is rebuilt from archived pages. Audio is being restored to the Internet Archive, and shows light up as they come back.</p>
+  </header>
+  <div class="tools">
+    <div class="row">
+      <input type="search" id="q" placeholder="Search poet, poem, or show number" aria-label="Search">
+      <button class="btn" id="rand" title="Play a random poem">Random poem</button>
+    </div>
+    <div class="years" id="years"></div>
+  </div>
+  <div class="count" id="count"></div>
+  <ol id="list"></ol>
+  <button class="more" id="more" hidden>Show more</button>
+  <footer>
+    Subscribe in any podcast app: <a href="feed.xml">feed.xml</a>.
+    Recordings belong to the poets. If you're one of them and want a show taken down or corrected, email <a href="mailto:mongo@wessmongojolley.com">mongo@wessmongojolley.com</a>.
+  </footer>
+</div>
+<div class="player" id="player"><div class="wrap"><div class="now" id="now"></div><audio id="audio" controls preload="none"></audio></div></div>
+<script>
+const PAGE = 60;
+let all = [], view = [], shown = 0, year = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = d => new Date(d + "T12:00:00").toLocaleDateString(undefined, {year: "numeric", month: "short", day: "numeric"});
+
+function row(e) {
+  const playable = !!e.audio;
+  return `<li id="${esc(e.id)}">
+    ${e.img ? `<img class="thumb" loading="lazy" src="${esc(e.img)}" alt="">` : `<div class="thumb"></div>`}
+    <div><div class="poet">${esc(e.poet)}</div>${e.poem ? `<div class="poem">${esc(e.poem)}</div>` : ""}
+      <div class="meta">${e.n ? `Show ${e.n} &middot; ` : ""}${fmt(e.d)}${e.src === "wayback" ? " &middot; from the Wayback Machine" : ""}${playable ? "" : " &middot; audio not restored yet"}</div></div>
+    <button class="play" data-id="${esc(e.id)}" ${playable ? "" : "disabled"} aria-label="Play ${esc(e.poet)}">&#9654;</button>
+  </li>`;
+}
+
+function render(reset) {
+  if (reset) { shown = 0; $("list").innerHTML = ""; }
+  $("list").insertAdjacentHTML("beforeend", view.slice(shown, shown + PAGE).map(row).join(""));
+  shown = Math.min(shown + PAGE, view.length);
+  $("more").hidden = shown >= view.length;
+  $("count").textContent = `${view.length.toLocaleString()} shows`;
+}
+
+function filter() {
+  const q = $("q").value.trim().toLowerCase();
+  view = all.filter(e => (!year || e.d.startsWith(year)) &&
+    (!q || `${e.poet} ${e.poem} ${e.notes} ${e.n ?? ""}`.toLowerCase().includes(q)));
+  render(true);
+}
+
+function play(e) {
+  const a = $("audio");
+  document.querySelectorAll(".play.on").forEach(b => b.classList.remove("on"));
+  document.querySelector(`.play[data-id="${CSS.escape(e.id)}"]`)?.classList.add("on");
+  a.src = e.audio; a.play();
+  $("now").innerHTML = `<b>${esc(e.poet)}</b>${e.poem ? " &middot; " + esc(e.poem) : ""}`;
+  $("player").classList.add("show");
+  history.replaceState(null, "", "#" + e.id);
+}
+
+fetch("episodes.json").then(r => r.json()).then(data => {
+  all = data.slice().reverse();
+  $("s-shows").textContent = all.length.toLocaleString();
+  $("s-poets").textContent = new Set(all.map(e => e.poet.toLowerCase())).size.toLocaleString();
+  const playable = all.filter(e => e.audio).length;
+  $("s-audio").textContent = playable.toLocaleString();
+  if (playable === all.length) $("notice").hidden = true;
+  if (!playable) { $("rand").disabled = true; $("rand").style.opacity = .4; $("rand").title = "No audio restored yet"; }
+  const years = [...new Set(all.map(e => e.d.slice(0, 4)))].sort();
+  $("years").innerHTML = `<button aria-pressed="true" data-y="">All years</button>` +
+    years.map(y => `<button aria-pressed="false" data-y="${y}">${y}</button>`).join("");
+  filter();
+  const hash = decodeURIComponent(location.hash.slice(1));
+  if (hash) {
+    const i = view.findIndex(e => e.id === hash);
+    if (i >= 0) { while (shown <= i) render(false); document.getElementById(hash)?.scrollIntoView({block: "center"}); }
+  }
+});
+
+$("q").addEventListener("input", filter);
+$("more").addEventListener("click", () => render(false));
+$("years").addEventListener("click", ev => {
+  const b = ev.target.closest("button"); if (!b) return;
+  year = b.dataset.y || null;
+  $("years").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  filter();
+});
+$("list").addEventListener("click", ev => {
+  const b = ev.target.closest(".play"); if (!b) return;
+  play(all.find(e => e.id === b.dataset.id));
+});
+$("rand").addEventListener("click", () => {
+  const pool = all.filter(e => e.audio);
+  if (pool.length) play(pool[Math.floor(Math.random() * pool.length)]);
+});
+</script>
+</body>
+</html>

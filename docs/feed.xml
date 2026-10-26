@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>IndieFeed: Performance Poetry</title>
+<link>https://steps-re.github.io/ifpp-archive/</link>
+<atom:link href="https://steps-re.github.io/ifpp-archive/feed.xml" rel="self" type="application/rss+xml"/>
+<description>The IndieFeed Performance Poetry Channel, 2006-2016. 1,614 shows, 632 poets, one poem per episode. Hosted by Wess "Mongo" Jolley.</description>
+<language>en</language>
+<itunes:author>Wess Mongo Jolley</itunes:author>
+<itunes:summary>The IndieFeed Performance Poetry Channel, 2006-2016. 1,614 shows, 632 poets, one poem per episode. Hosted by Wess "Mongo" Jolley.</itunes:summary>
+<itunes:image href="https://static.libsyn.com/p/assets/f/7/a/6/f7a6f36fe4290bce/IFPP_iTunes_Large.png"/>
+<itunes:category text="Arts"><itunes:category text="Books"/></itunes:category>
+<itunes:explicit>true</itunes:explicit>
+<itunes:type>episodic</itunes:type>
+<itunes:complete>Yes</itunes:complete>
+
+</channel>
+</rss>
